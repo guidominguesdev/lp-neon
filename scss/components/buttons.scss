@@ -1,0 +1,56 @@
+@use "theme" as *;
+
+.btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: $radii-full;
+  font-family: "#{$fonts-heading}", sans-serif;
+  font-weight: $font-weights-semibold;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.btn-primary {
+  @extend .btn;
+
+  background-color: $colors-yellow-500;
+  color: $colors-brown-500;
+  transition: background-color $transitions-fast;
+  height: $space-14;
+  padding: $space-4 $space-7;
+
+  &:hover {
+    background-color: $colors-yellow-400;
+  }
+}
+
+.btn-secondary {
+  @extend .btn;
+
+  border: $border-widths-thin solid $colors-blue-400;
+  background-color: transparent;
+  color: $colors-blue-400;
+  transition: background-color $transitions-fast, color $transitions-fast,
+    border-color $transitions-fast $transitions-fast;
+  height: $space-12;
+  padding: $space-3 $space-4;
+
+  &:hover {
+    background-color: $colors-blue-400;
+    color: $colors-pure-white;
+  }
+
+  &.white {
+    border: $border-widths-thin solid transparentize($colors-pure-white, 0.5);
+    color: $colors-pure-white;
+
+    &:hover {
+      background-color: $colors-pure-white;
+      color: $colors-green-400;
+    }
+  }
+}

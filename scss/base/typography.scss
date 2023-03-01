@@ -1,0 +1,52 @@
+@use "theme" as *;
+@use "abstracts" as *;
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "#{$fonts-heading}", sans-serif;
+  color: $colors-gray-600;
+  line-height: 112%;
+}
+
+h1 {
+  font-size: $font-sizes-64;
+  letter-spacing: -1px;
+  font-weight: $font-weights-semibold;
+
+  @include responsive(md) {
+    font-size: $font-sizes-48;
+    letter-spacing: -0.5px;
+  }
+
+  @include responsive(sm) {
+    font-size: $font-sizes-32;
+  }
+}
+
+h2 {
+  font-size: $font-sizes-40;
+  letter-spacing: -1px;
+  font-weight: $font-weights-semibold;
+
+  @include responsive(sm) {
+    font-size: $font-sizes-28;
+  }
+}
+
+h3 {
+  font-size: $font-sizes-24;
+  letter-spacing: -0.5px;
+  font-weight: $font-weights-medium;
+
+  @include responsive(md) {
+    font-size: $font-sizes-20;
+  }
+}
+
+h4 {
+  font-size: $font-sizes-20;
+  letter-spacing: -0.5px;
+  font-weight: $font-weights-medium;
+}

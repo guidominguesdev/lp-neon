@@ -1,0 +1,26 @@
+@use "theme" as *;
+@use "abstracts" as *;
+
+.btn-chat {
+  all: unset;
+
+  @include flex(center, center);
+  gap: $space-2;
+  cursor: pointer;
+  width: $space-26;
+  height: $space-10;
+  position: fixed;
+  bottom: $space-2;
+  right: $space-2;
+  background: $colors-green-400;
+  border-radius: $radii-full;
+  z-index: 99;
+  transition: transform $transitions-fast;
+  font-family: "#{$fonts-heading}", sans-serif;
+  font-weight: $font-weights-semibold;
+  color: $colors-pure-white;
+
+  svg {
+    width: $space-4;
+  }
+}

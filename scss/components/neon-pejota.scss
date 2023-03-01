@@ -1,0 +1,66 @@
+@use "theme" as *;
+@use "abstracts" as *;
+
+.neon-pejota {
+  @include flex(center, space-between);
+  gap: $space-8;
+  width: 100%;
+  height: to-rem(410px);
+  background: linear-gradient(100.52deg, #00a5f0 5.63%, #03e7e7 95.75%);
+  border-radius: $radii-md;
+  padding-left: $space-14;
+
+  .card-front-pj {
+    $calc: calc($space-8 + to-rem(54px));
+    margin-right: -$calc;
+    @include max-w(to-rem(398px));
+  }
+
+  .content {
+    @include flex-col;
+    @include max-w(to-rem(360px));
+  }
+
+  h2 {
+    color: $colors-pure-white;
+    margin-bottom: $space-3;
+  }
+
+  h3 {
+    color: $colors-pure-white;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    color: $colors-pure-white;
+    margin-bottom: $space-8;
+  }
+
+  .pj-buttons {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+  }
+
+  @include responsive(md) {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    max-width: to-rem(520px);
+
+    .content {
+      text-align: center;
+      align-items: center;
+      padding-inline: $space-7;
+      padding-block: $space-10 $space-5;
+    }
+
+    .card-front-pj {
+      max-width: 100%;
+      width: 100%;
+      margin-right: 0;
+      padding-left: to-rem(42px);
+      margin-bottom: -$space-16;
+    }
+  }
+}

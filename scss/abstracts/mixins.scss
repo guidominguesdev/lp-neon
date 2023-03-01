@@ -1,0 +1,63 @@
+@use "theme" as *;
+
+@mixin flex($align: flex-start, $justify: flex-start) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin flex-col($align: flex-start, $justify: flex-start) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin py($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+@mixin px($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+@mixin my($value) {
+  margin-top: $value;
+  margin-bottom: $value;
+}
+
+@mixin mx($value) {
+  margin-top: $value;
+  margin-bottom: $value;
+}
+
+@mixin responsive($device) {
+  @if $device == 2xl {
+    @media screen and (max-width: $media-2xl) {
+      @content;
+    }
+  } @else if $device == xl {
+    @media screen and (max-width: $media-xl) {
+      @content;
+    }
+  } @else if $device == lg {
+    @media screen and (max-width: $media-lg) {
+      @content;
+    }
+  } @else if $device == md {
+    @media screen and (max-width: $media-md) {
+      @content;
+    }
+  } @else if $device == sm {
+    @media screen and (max-width: $media-sm) {
+      @content;
+    }
+  }
+}
+
+@mixin max-w($value) {
+  width: 100%;
+  max-width: $value;
+}

@@ -1,0 +1,139 @@
+@use "theme" as *;
+@use "abstracts" as *;
+
+.bank-advantage {
+  @include flex(center, space-between);
+  gap: $space-4;
+  padding-block: $space-8;
+  position: relative;
+
+  .content {
+    @include flex(center);
+    gap: $space-10;
+
+    .icon {
+      min-width: $space-16;
+      min-height: $space-16;
+      width: $space-16;
+      height: $space-16;
+    }
+
+    .txt {
+      @include flex-col;
+
+      h3 {
+        color: $colors-gray-400;
+      }
+
+      p {
+        font-size: $font-sizes-lg;
+      }
+    }
+  }
+
+  .arrow {
+    width: to-rem(10px);
+
+    transition: color $transitions-fast;
+    color: transparentize($colors-pure-black, 0.9);
+  }
+
+  &.advantage-1,
+  &.advantage-2,
+  &.advantage-3 {
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: $space-px;
+      transition: width $transitions-slow;
+    }
+  }
+
+  &.advantage-1 {
+    &::after {
+      background: $colors-green-400;
+    }
+  }
+
+  &.advantage-2 {
+    &::after {
+      background: $colors-blue-400;
+    }
+  }
+
+  &.advantage-3 {
+    &::after {
+      background: $colors-blue-500;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: $space-px;
+    background-color: transparentize($colors-pure-black, 0.9);
+  }
+
+  &:hover {
+    &.advantage-1 {
+      &::after {
+        width: 100%;
+        left: 0;
+        right: 0;
+      }
+
+      .arrow {
+        color: $colors-green-400;
+      }
+    }
+
+    &.advantage-2 {
+      &::after {
+        width: 100%;
+        left: 0;
+        right: 0;
+      }
+
+      .arrow {
+        color: $colors-blue-400;
+      }
+    }
+
+    &.advantage-3 {
+      &::after {
+        width: 100%;
+        left: 0;
+        right: 0;
+      }
+
+      .arrow {
+        color: $colors-blue-500;
+      }
+    }
+  }
+
+  @include responsive(md) {
+    .content {
+      gap: $space-6;
+      align-items: flex-start;
+
+      .txt {
+        gap: $space-2;
+
+        h3 {
+          max-width: 90%;
+        }
+
+        p {
+          font-size: $font-sizes-md;
+        }
+      }
+    }
+  }
+}

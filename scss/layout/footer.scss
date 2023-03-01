@@ -1,0 +1,220 @@
+@use "theme" as *;
+@use "abstracts" as *;
+
+footer {
+  background-color: $colors-blue-500;
+
+  .container {
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: to-rem(4px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $colors-yellow-500;
+    }
+  }
+
+  .top {
+    @include flex(center, space-between);
+    border-bottom: $border-widths-thick solid
+      transparentize($colors-blue-400, 0.8);
+    padding-block: $space-12;
+
+    .logo {
+      @include flex(center, center);
+      width: 100%;
+      max-width: $space-26;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .share {
+      @include flex(center, space-between);
+      gap: $space-8;
+
+      span {
+        font-family: "#{$fonts-heading}", sans-serif;
+        font-size: $font-sizes-sm;
+        color: transparentize($colors-pure-white, 0.3);
+      }
+
+      ul {
+        @include flex(center, flex-start);
+        gap: $space-7;
+
+        li {
+          a {
+            display: flex;
+            color: $colors-pure-white;
+            height: $space-4;
+            transition: color $transitions-fast;
+          }
+
+          &:hover {
+            a {
+              color: $colors-yellow-500;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .middle {
+    @include flex(flex-start, space-between);
+    border-bottom: $border-widths-thick solid
+      transparentize($colors-blue-400, 0.8);
+    padding-block: $space-12;
+
+    .nav {
+      @include flex(flex-start, space-between);
+      width: 100%;
+
+      .item {
+        @include flex-col(flex-start, flex-start);
+        gap: $space-6;
+
+        .heading {
+          font-family: "#{$fonts-heading}", sans-serif;
+          font-weight: $font-weights-medium;
+          color: $colors-pure-white;
+        }
+
+        ul {
+          @include flex-col(flex-start, flex-start);
+          gap: $space-4;
+
+          li {
+            a {
+              font-family: "#{$fonts-heading}", sans-serif;
+              font-size: $font-sizes-sm;
+              color: transparentize($colors-pure-white, 0.3);
+              transition: color $transitions-fast;
+            }
+
+            &:hover {
+              a {
+                color: $colors-yellow-500;
+              }
+            }
+          }
+        }
+      }
+
+      .footer-buttons {
+        @include max-w(to-rem(280px));
+        @include flex-col(flex-start, flex-start);
+        gap: $space-6;
+
+        .footer-button {
+          @include flex(center, flex-start);
+          gap: $space-6;
+          width: 100%;
+          height: to-rem(80px);
+          padding-inline: $space-6;
+          background-color: transparentize($colors-blue-400, 0.8);
+          border-radius: $radii-sm;
+          transition: background-color $transitions-fast;
+
+          svg {
+            width: $space-5;
+          }
+
+          .content {
+            font-size: $font-sizes-sm;
+            line-height: 150%;
+
+            strong {
+              font-family: "#{$fonts-heading}", sans-serif;
+              font-weight: 500;
+              display: block;
+              color: $colors-pure-white;
+            }
+
+            span {
+              color: $colors-pure-white;
+            }
+          }
+
+          &:hover {
+            background-color: $colors-blue-400;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    gap: $space-4;
+    border-bottom: solid;
+    padding-block: $space-10;
+    position: relative;
+
+    .icon {
+      font-size: $font-sizes-lg;
+    }
+
+    p {
+      @include max-w(to-rem(662px));
+      font-size: $font-sizes-sm;
+      color: transparentize($colors-pure-white, 0.2);
+    }
+  }
+
+  @include responsive(md) {
+    .top {
+      flex-direction: column;
+      gap: $space-8;
+
+      .share {
+        flex-direction: column;
+        gap: $space-4;
+      }
+    }
+
+    .middle {
+      flex-direction: column;
+      gap: $space-12;
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: $space-8;
+
+        .item {
+          @include max-w(to-rem(174px));
+        }
+
+        .footer-buttons {
+          max-width: 100%;
+
+          .footer-button {
+            text-align: center;
+            justify-content: center;
+
+            svg {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .bottom {
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        text-align: center;
+        max-width: 75%;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use "theme" as *;
+@use "abstracts" as *;
+
+.card-testimonial {
+  @include max-w(to-rem(384px));
+  height: 100%;
+  background-color: transparentize($colors-gray-100, 0.45);
+  border-radius: $radii-sm;
+  padding: $space-8;
+
+  .user {
+    @include flex(center, space-between);
+    margin-bottom: $space-5;
+
+    strong {
+      font-family: "#{$fonts-heading}", sans-serif;
+      font-weight: $font-weights-semibold;
+      font-size: $font-sizes-lg;
+      letter-spacing: -0.5px;
+      color: $colors-gray-500;
+    }
+
+    svg {
+      width: $space-5;
+      color: #00a5f0;
+    }
+  }
+
+  p {
+    font-size: $font-sizes-lg;
+  }
+}
